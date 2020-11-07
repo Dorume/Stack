@@ -9,9 +9,9 @@ namespace Stack
     class Program
     {
         static string command;
-        static int size = 0, argument = 0;
+        static int argument = 0;
         static NodeStack stack = new NodeStack();
-        static void Main(string[] args)
+        static void Main()
         {
             Dictionary<string, Action> commands = new Dictionary<string, Action>()
             {
@@ -36,13 +36,12 @@ namespace Stack
         private static void Clear()
         {
             stack.Clear();
-            size = 0;
             PrintOk();
         }
 
         private static void Back()
         {
-            if (size != 0)
+            if (stack.Size != 0)
                 Console.WriteLine(stack.Back());
             else
                 PrintError();
@@ -58,7 +57,7 @@ namespace Stack
                 int.TryParse(data[1], out argument);
             }
         }
-        static void Size() => Console.WriteLine(size);
+        static void Size() => Console.WriteLine(stack.Size);
         static void Exit()
         {
             Console.WriteLine("bye");
@@ -68,15 +67,13 @@ namespace Stack
         static void Push()
         {
             stack.Push(argument);
-            size++;
             PrintOk();
         }
         static void Pop()
         {
-            if (size != 0)
+            if (stack.Size != 0)
             {
                 Console.WriteLine(stack.Pop());
-                size--;
             }
             else PrintError();
 

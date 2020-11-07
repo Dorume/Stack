@@ -5,9 +5,9 @@
         private Node head;
         public int Size { get; private set; }
 
-        public void Push(int item)
+        public void Push(int number)
         {
-            Node node = new Node(item);
+            Node node = new Node(number);
             node.Next = head;
             head = node;
             Size++;
@@ -20,10 +20,7 @@
             return temp.Data;
         }
 
-        public int Back()
-        {
-            return head.Data;
-        }
+        public int Back() => head.Data;
 
         public void Clear()
         {
