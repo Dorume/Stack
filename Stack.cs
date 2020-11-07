@@ -1,9 +1,10 @@
 ﻿namespace Stack
 {
-    public class NodeStack
+    class Stack
     {
         private Node head;
         public int Size { get; private set; }
+        public bool IsEmpty { get => Size == 0; }
 
         public void Push(int number)
         {
@@ -24,9 +25,8 @@
 
         public void Clear()
         {
-            while(Size > 0)
+            while(!IsEmpty)
                 Pop();
         }
-
     }
 }
