@@ -4,7 +4,7 @@
     {
         private Node head;
         public int Size { get; private set; }
-        public bool IsEmpty { get => Size == 0; }
+        public bool IsEmpty => Size == 0;
 
         public void Push(int number)
         {
